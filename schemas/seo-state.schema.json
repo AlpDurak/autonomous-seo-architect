@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous SEO Architect State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "current_phase",
+    "approvals",
+    "dev_server",
+    "targets",
+    "artifacts",
+    "file_hashes_before_edit",
+    "changes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "current_phase": {
+      "type": "string",
+      "enum": [
+        "phase_1_project_analysis",
+        "phase_2_deep_seo_audit",
+        "phase_3_safe_code_execution",
+        "phase_4_validation_reporting"
+      ]
+    },
+    "approvals": {
+      "type": "object",
+      "required": ["phase_1_manifesto", "phase_2_checklist"],
+      "properties": {
+        "phase_1_manifesto": {
+          "type": "boolean"
+        },
+        "phase_2_checklist": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    },
+    "dev_server": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": ["string", "null"]
+        },
+        "start_command": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "targets": {
+      "type": "array"
+    },
+    "artifacts": {
+      "type": "object",
+      "required": ["manifesto", "checklist", "report", "evidence_dir"],
+      "properties": {
+        "manifesto": {
+          "const": "project_manifesto.md"
+        },
+        "checklist": {
+          "const": "seo_dynamic_checklist.md"
+        },
+        "report": {
+          "const": "seo_changelog_report.md"
+        },
+        "evidence_dir": {
+          "const": ".seo-agent/evidence"
+        }
+      },
+      "additionalProperties": true
+    },
+    "file_hashes_before_edit": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "changes": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

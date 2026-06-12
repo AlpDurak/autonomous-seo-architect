@@ -1,0 +1,35 @@
+{
+  "name": "autonomous-seo-architect",
+  "version": "0.1.0",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "seo-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem@2026.1.14",
+        "${workspacePath}"
+      ],
+      "cwd": "${workspacePath}",
+      "timeout": 30000
+    },
+    "seo-ast-grep": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@chousyn/ast-grep-mcp@0.1.1"
+      ],
+      "cwd": "${workspacePath}",
+      "env": {
+        "AST_GREP_WORKSPACE": "${workspacePath}"
+      },
+      "timeout": 30000
+    }
+  },
+  "excludeTools": [
+    "run_shell_command(playwright)",
+    "run_shell_command(npx playwright)",
+    "run_shell_command(puppeteer)",
+    "run_shell_command(npx puppeteer)"
+  ]
+}

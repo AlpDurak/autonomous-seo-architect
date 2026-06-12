@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "current_phase": "phase_1_project_analysis",
+  "approvals": {
+    "phase_1_manifesto": false,
+    "phase_2_checklist": false
+  },
+  "dev_server": {
+    "url": null,
+    "start_command": null
+  },
+  "targets": [],
+  "artifacts": {
+    "manifesto": "project_manifesto.md",
+    "checklist": "seo_dynamic_checklist.md",
+    "report": "seo_changelog_report.md",
+    "evidence_dir": ".seo-agent/evidence"
+  },
+  "file_hashes_before_edit": {},
+  "changes": []
+}

@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "seo-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem@2026.1.14",
+        "${CLAUDE_PROJECT_DIR}"
+      ],
+      "env": {
+        "SEO_AGENT_PURPOSE": "Read and safely write SEO project artifacts and approved code diffs."
+      }
+    },
+    "seo-ast-grep": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@chousyn/ast-grep-mcp@0.1.1"
+      ],
+      "env": {
+        "AST_GREP_WORKSPACE": "${CLAUDE_PROJECT_DIR}",
+        "SEO_AGENT_PURPOSE": "AST structural search and safe dry-run replacement for HTML, TSX, JSX, MDX, XML, JSON, and YAML."
+      }
+    }
+  }
+}

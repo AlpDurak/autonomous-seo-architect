@@ -1,0 +1,38 @@
+{
+  "name": "autonomous-seo-architect",
+  "version": "0.1.0",
+  "description": "Autonomous technical SEO agent skill with MCP bindings, rendered DOM inspection, gated execution, and exhaustive reporting.",
+  "author": {
+    "name": "Autonomous SEO Architect contributors"
+  },
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "keywords": [
+    "seo",
+    "technical-seo",
+    "agent-browser",
+    "mcp",
+    "ast",
+    "structured-data"
+  ],
+  "interface": {
+    "displayName": "Autonomous SEO Architect",
+    "shortDescription": "Audit and safely optimize SEO across code and rendered DOM.",
+    "longDescription": "A gated SEO optimization agent for codebase analysis, rendered DOM inspection through agent-browser, technical SEO audits, safe AST-assisted edits, and changelog reporting.",
+    "developerName": "Autonomous SEO Architect contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "MCP",
+      "Browser",
+      "Code Analysis"
+    ],
+    "brandColor": "#2563EB",
+    "defaultPrompt": [
+      "Run a Phase 1 SEO manifesto for this project.",
+      "Audit this site and produce an SEO checklist.",
+      "Execute approved SEO fixes and report changes."
+    ]
+  }
+}

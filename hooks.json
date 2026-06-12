@@ -1,0 +1,27 @@
+{
+  "$schema": "./schemas/hooks.schema.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "name": "seo-phase-edit-gate",
+        "description": "Block project code edits until the Phase 2 SEO checklist is approved, while allowing skill artifacts and state files.",
+        "matcher": "functions.apply_patch|filesystem.write_file|filesystem.apply_patch|filesystem.write",
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ./hooks/seo-phase-gate.ps1 pre-edit"
+      },
+      {
+        "name": "seo-forbidden-browser-tool-gate",
+        "description": "Block Playwright and Puppeteer shell usage because this package requires Vercel agent-browser for rendered DOM work.",
+        "matcher": "functions.shell_command|shell_command|Bash",
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ./hooks/seo-phase-gate.ps1 pre-shell"
+      }
+    ],
+    "Stop": [
+      {
+        "name": "seo-completion-gate",
+        "description": "Warn when required SEO run artifacts are missing before the agent claims completion.",
+        "blocking": false,
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ./hooks/seo-phase-gate.ps1 pre-complete"
+      }
+    ]
+  }
+}

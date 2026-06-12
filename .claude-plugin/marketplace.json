@@ -1,0 +1,26 @@
+{
+  "name": "autonomous-seo-architect",
+  "owner": {
+    "name": "Autonomous SEO Architect contributors"
+  },
+  "description": "Marketplace catalog for the Autonomous SEO Architect plugin.",
+  "version": "0.1.0",
+  "plugins": [
+    {
+      "name": "autonomous-seo-architect",
+      "source": "./",
+      "description": "Autonomous technical SEO agent with rendered DOM inspection, MCP bindings, gated execution, and exhaustive reporting.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Autonomous SEO Architect contributors"
+      },
+      "category": "productivity",
+      "tags": [
+        "seo",
+        "technical-seo",
+        "mcp",
+        "agent-browser"
+      ]
+    }
+  ]
+}

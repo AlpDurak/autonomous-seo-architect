@@ -1,0 +1,23 @@
+{
+  "name": "autonomous-seo-architect",
+  "displayName": "Autonomous SEO Architect",
+  "version": "0.1.0",
+  "description": "Autonomous technical SEO agent with rendered DOM inspection, MCP bindings, gated execution, and exhaustive reporting.",
+  "author": {
+    "name": "Autonomous SEO Architect contributors"
+  },
+  "homepage": "https://github.com/AlpDurak/autonomous-seo-architect",
+  "repository": "https://github.com/AlpDurak/autonomous-seo-architect",
+  "license": "MIT",
+  "keywords": [
+    "seo",
+    "technical-seo",
+    "agent-browser",
+    "mcp",
+    "ast",
+    "structured-data"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./mcp/claude.mcp.json"
+}
