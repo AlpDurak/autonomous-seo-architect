@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "cadence": "weekly",
+  "targets": {
+    "urls_file": ".seo-agent/monitoring_urls.txt",
+    "home_url": "https://example.com/"
+  },
+  "thresholds": {
+    "max_missing_title": 0,
+    "max_missing_meta_description": 0,
+    "max_h1_issues": 0,
+    "max_non_200": 0,
+    "min_pagespeed_mobile_score": 75,
+    "max_structured_data_errors": 0
+  },
+  "commands": [
+    "python scripts/collect_static_seo.py --urls-file .seo-agent/monitoring_urls.txt --output .seo-agent/evidence/static_crawl.json",
+    "python scripts/collect_rendered_seo.py --urls-file .seo-agent/monitoring_urls.txt --output .seo-agent/evidence/rendered_seo.json",
+    "python scripts/validate_structured_data.py --input .seo-agent/evidence/rendered_seo.json",
+    "python scripts/monitor_seo.py --previous .seo-agent/monitoring_snapshot.previous.json"
+  ]
+}

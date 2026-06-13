@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous SEO Architect Data Import Envelope",
+  "type": "object",
+  "required": ["schema_version", "imports"],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "imports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "source", "path_or_url", "provided_by_user"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "gsc_performance_export",
+              "gsc_indexing_export",
+              "gsc_core_web_vitals_export",
+              "competitor_keyword_export",
+              "competitor_rank_export",
+              "serp_export",
+              "competitor_url_list",
+              "keyword_seed_list",
+              "server_log",
+              "pagespeed_crux_export",
+              "structured_data_export"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "path_or_url": {
+            "type": "string"
+          },
+          "provided_by_user": {
+            "type": "boolean"
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

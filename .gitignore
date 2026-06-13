@@ -1,3 +1,10 @@
 __pycache__/
 *.pyc
 .seo-agent/evidence/
+.seo-agent/imports/
+.seo-agent/*.md
+.seo-agent/internal_link_graph.json
+.seo-agent/search_console_import.json
+.seo-agent/competitor_keyword_import.json
+.seo-agent/opportunity_scores.json
+.seo-agent/monitoring_snapshot*.json

@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Autonomous SEO Architect Opportunities",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "source_evidence", "opportunities"],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "source_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "path_or_url", "confidence"],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "source_file",
+              "rendered_dom",
+              "agent_browser_vitals",
+              "gsc_export",
+              "competitor_keyword_export",
+              "serp_export",
+              "competitor_url_snapshot",
+              "static_crawl",
+              "pagespeed_crux",
+              "structured_data_validation",
+              "server_log",
+              "monitoring_snapshot",
+              "manual_user_input",
+              "inference"
+            ]
+          },
+          "path_or_url": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["observed", "provided", "inferred", "unverified"]
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "opportunities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "module",
+          "severity",
+          "finding",
+          "evidence",
+          "seo_rule",
+          "proposed_fix",
+          "risk",
+          "requires_user_content",
+          "expected_impact",
+          "validation_method",
+          "failure_signal",
+          "leading_indicator",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "module": {
+            "type": "string",
+            "enum": [
+              "critical_technical_seo",
+              "on_page_elements",
+              "content_semantic_gaps",
+              "competitor_keyword_gap",
+              "serp_competitor_discovery",
+              "competitor_content_entity_gap",
+              "load_speed",
+              "gsc_opportunity_mining",
+              "ai_visibility",
+              "internal_link_graph",
+              "structured_data_validation",
+              "server_log_analysis",
+              "opportunity_scoring",
+              "monitoring",
+              "industry_playbook"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"]
+          },
+          "finding": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "seo_rule": {
+            "type": "string"
+          },
+          "proposed_fix": {
+            "type": "string"
+          },
+          "files_likely_touched": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "competitors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risk": {
+            "type": "string"
+          },
+          "requires_user_content": {
+            "type": "boolean"
+          },
+          "expected_impact": {
+            "type": "string"
+          },
+          "validation_method": {
+            "type": "string"
+          },
+          "failure_signal": {
+            "type": "string"
+          },
+          "leading_indicator": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["observed", "provided", "inferred", "unverified"]
+          },
+          "status": {
+            "type": "string",
+            "enum": ["proposed", "approved", "executed", "blocked", "deferred"]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

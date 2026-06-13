@@ -33,8 +33,42 @@ DEFAULT_STATE: dict[str, Any] = {
     "artifacts": {
         "manifesto": "project_manifesto.md",
         "checklist": "seo_dynamic_checklist.md",
+        "opportunities_json": "seo_opportunities.json",
+        "competitor_keyword_analysis": "seo_competitor_keyword_analysis.md",
+        "performance_audit": "seo_performance_audit.md",
         "report": "seo_changelog_report.md",
+        "internal_link_graph": ".seo-agent/internal_link_graph.json",
+        "search_console_import": ".seo-agent/search_console_import.json",
+        "rendered_seo": ".seo-agent/evidence/rendered_seo.json",
+        "static_crawl": ".seo-agent/evidence/static_crawl.json",
+        "pagespeed_crux": ".seo-agent/evidence/pagespeed_crux.json",
+        "structured_data_validation": ".seo-agent/evidence/structured_data_validation.json",
+        "server_log_analysis": ".seo-agent/evidence/server_log_analysis.json",
+        "opportunity_scores": ".seo-agent/opportunity_scores.json",
+        "monitoring_snapshot": ".seo-agent/monitoring_snapshot.json",
         "evidence_dir": ".seo-agent/evidence",
+    },
+    "data_sources": {
+        "competitor_keyword_exports": [],
+        "serp_exports": [],
+        "gsc_exports": [],
+        "competitor_urls": [],
+    },
+    "analysis_modules": {
+        "competitor_keyword_gap": False,
+        "serp_competitor_discovery": False,
+        "competitor_content_entity_gap": False,
+        "load_speed_audit": False,
+        "gsc_opportunity_mining": False,
+        "ai_visibility_audit": False,
+        "internal_link_graph_scoring": False,
+        "machine_readable_reporting": True,
+        "falsifiable_recommendations": True,
+        "structured_data_validation": True,
+        "server_log_analysis": False,
+        "opportunity_scoring": True,
+        "monitoring_mode": False,
+        "industry_playbooks": True,
     },
     "file_hashes_before_edit": {},
     "changes": [],
@@ -49,6 +83,9 @@ FORBIDDEN_SHELL_PATTERNS = (
 PHASE_ARTIFACTS = {
     "project_manifesto.md",
     "seo_dynamic_checklist.md",
+    "seo_opportunities.json",
+    "seo_competitor_keyword_analysis.md",
+    "seo_performance_audit.md",
     "seo_changelog_report.md",
     "SKILL.md",
     "README.md",
@@ -74,6 +111,8 @@ PHASE_ARTIFACT_PREFIXES = (
     ".claude-plugin/",
     "mcp/",
     ".github/",
+    "configs/",
+    "playbooks/",
 )
 
 
@@ -157,7 +196,18 @@ def load_state(path: Path) -> dict[str, Any] | None:
 
 
 def load_state_or_default(path: Path) -> dict[str, Any]:
-    return load_state(path) or json.loads(json.dumps(DEFAULT_STATE))
+    state = load_state(path) or {}
+    return merge_defaults(json.loads(json.dumps(DEFAULT_STATE)), state)
+
+
+def merge_defaults(default: dict[str, Any], state: dict[str, Any]) -> dict[str, Any]:
+    merged = json.loads(json.dumps(default))
+    for key, value in state.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = merge_defaults(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
 
 
 def write_state(path: Path, state: dict[str, Any]) -> None:
@@ -235,6 +285,7 @@ def check_pre_complete(args: argparse.Namespace, workspace: Path, state: dict[st
     required = [
         ("project_manifesto.md", approvals.get("phase_1_manifesto") is True),
         ("seo_dynamic_checklist.md", approvals.get("phase_2_checklist") is True),
+        ("seo_opportunities.json", approvals.get("phase_2_checklist") is True),
         ("seo_changelog_report.md", True),
     ]
     for filename, approved in required:

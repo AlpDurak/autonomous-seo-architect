@@ -22,12 +22,25 @@ JSON_FILES = [
     "hooks/hooks.json",
     "mcp/claude.mcp.json",
     "schemas/hooks.schema.json",
+    "schemas/seo-data-import.schema.json",
+    "schemas/seo-opportunities.schema.json",
     "schemas/seo-state.schema.json",
     ".seo-agent/state.json",
 ]
 PYTHON_FILES = [
+    "scripts/analyze_server_logs.py",
+    "scripts/build_internal_link_graph.py",
+    "scripts/collect_pagespeed_crux.py",
+    "scripts/collect_rendered_seo.py",
+    "scripts/collect_static_seo.py",
+    "scripts/import_competitor_keywords.py",
+    "scripts/import_gsc.py",
+    "scripts/monitor_seo.py",
     "scripts/seo_state_guard.py",
+    "scripts/score_opportunities.py",
+    "scripts/seo_utils.py",
     "scripts/register_personal_marketplace.py",
+    "scripts/validate_structured_data.py",
     "scripts/validate_package.py",
 ]
 
@@ -58,6 +71,16 @@ def check_files_exist() -> list[str]:
         "hooks/seo-phase-gate.ps1",
         "hooks/seo-phase-gate.sh",
         "intel/seo-audit-checklist.md",
+        "schemas/seo-opportunities.schema.json",
+        "schemas/seo-data-import.schema.json",
+        "configs/monitoring.example.json",
+        "playbooks/industry/saas.md",
+        "playbooks/industry/ecommerce.md",
+        "playbooks/industry/local.md",
+        "playbooks/industry/publisher.md",
+        "playbooks/industry/marketplace.md",
+        "playbooks/industry/international.md",
+        "playbooks/industry/programmatic.md",
     ]
     return [f"Missing required file: {path}" for path in required if not (ROOT / path).is_file()]
 

@@ -2,9 +2,9 @@
   "name": "autonomous-seo-architect",
   "displayName": "Autonomous SEO Architect",
   "version": "0.1.0",
-  "description": "Autonomous technical SEO agent with rendered DOM inspection, MCP bindings, gated execution, and exhaustive reporting.",
+  "description": "Autonomous technical SEO agent with evidence scripts for competitor keyword analysis, load-speed audits, GSC imports, internal links, logs, rendered DOM inspection, MCP bindings, gated execution, and exhaustive reporting.",
   "author": {
-    "name": "Autonomous SEO Architect contributors"
+    "name": "Alp Durak"
   },
   "homepage": "https://github.com/AlpDurak/autonomous-seo-architect",
   "repository": "https://github.com/AlpDurak/autonomous-seo-architect",
@@ -15,7 +15,12 @@
     "agent-browser",
     "mcp",
     "ast",
-    "structured-data"
+    "structured-data",
+    "keyword-gap",
+    "core-web-vitals",
+    "search-console",
+    "internal-linking",
+    "log-analysis"
   ],
   "skills": "./skills/",
   "hooks": "./hooks/hooks.json",

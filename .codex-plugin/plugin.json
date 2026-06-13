@@ -1,9 +1,9 @@
 {
   "name": "autonomous-seo-architect",
   "version": "0.1.0",
-  "description": "Autonomous technical SEO agent skill with MCP bindings, rendered DOM inspection, gated execution, and exhaustive reporting.",
+  "description": "Autonomous technical SEO agent skill with evidence scripts for competitor keyword analysis, load-speed audits, GSC imports, internal links, logs, MCP bindings, rendered DOM inspection, gated execution, and exhaustive reporting.",
   "author": {
-    "name": "Autonomous SEO Architect contributors"
+    "name": "Alp Durak"
   },
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
@@ -13,13 +13,18 @@
     "agent-browser",
     "mcp",
     "ast",
-    "structured-data"
+    "structured-data",
+    "keyword-gap",
+    "core-web-vitals",
+    "search-console",
+    "internal-linking",
+    "log-analysis"
   ],
   "interface": {
     "displayName": "Autonomous SEO Architect",
-    "shortDescription": "Audit and safely optimize SEO across code and rendered DOM.",
-    "longDescription": "A gated SEO optimization agent for codebase analysis, rendered DOM inspection through agent-browser, technical SEO audits, safe AST-assisted edits, and changelog reporting.",
-    "developerName": "Autonomous SEO Architect contributors",
+    "shortDescription": "Audit rankings, speed, and SEO across code and rendered DOM.",
+    "longDescription": "A gated SEO optimization agent for codebase analysis, competitor keyword gaps, Google Search Console exports, load-speed diagnostics, structured data validation, internal link graph scoring, server log analysis, monitoring snapshots, rendered DOM inspection through agent-browser, technical SEO audits, safe AST-assisted edits, and changelog reporting.",
+    "developerName": "Alp Durak",
     "category": "Productivity",
     "capabilities": [
       "Read",

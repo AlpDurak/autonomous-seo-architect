@@ -7,10 +7,12 @@
     "current_phase",
     "approvals",
     "dev_server",
-    "targets",
-    "artifacts",
-    "file_hashes_before_edit",
-    "changes"
+      "targets",
+      "artifacts",
+      "data_sources",
+      "analysis_modules",
+      "file_hashes_before_edit",
+      "changes"
   ],
   "properties": {
     "schema_version": {
@@ -55,7 +57,24 @@
     },
     "artifacts": {
       "type": "object",
-      "required": ["manifesto", "checklist", "report", "evidence_dir"],
+      "required": [
+        "manifesto",
+        "checklist",
+        "opportunities_json",
+        "competitor_keyword_analysis",
+        "performance_audit",
+        "report",
+        "internal_link_graph",
+        "search_console_import",
+        "rendered_seo",
+        "static_crawl",
+        "pagespeed_crux",
+        "structured_data_validation",
+        "server_log_analysis",
+        "opportunity_scores",
+        "monitoring_snapshot",
+        "evidence_dir"
+      ],
       "properties": {
         "manifesto": {
           "const": "project_manifesto.md"
@@ -63,11 +82,113 @@
         "checklist": {
           "const": "seo_dynamic_checklist.md"
         },
+        "opportunities_json": {
+          "const": "seo_opportunities.json"
+        },
+        "competitor_keyword_analysis": {
+          "const": "seo_competitor_keyword_analysis.md"
+        },
+        "performance_audit": {
+          "const": "seo_performance_audit.md"
+        },
         "report": {
           "const": "seo_changelog_report.md"
         },
+        "internal_link_graph": {
+          "const": ".seo-agent/internal_link_graph.json"
+        },
+        "search_console_import": {
+          "const": ".seo-agent/search_console_import.json"
+        },
+        "rendered_seo": {
+          "const": ".seo-agent/evidence/rendered_seo.json"
+        },
+        "static_crawl": {
+          "const": ".seo-agent/evidence/static_crawl.json"
+        },
+        "pagespeed_crux": {
+          "const": ".seo-agent/evidence/pagespeed_crux.json"
+        },
+        "structured_data_validation": {
+          "const": ".seo-agent/evidence/structured_data_validation.json"
+        },
+        "server_log_analysis": {
+          "const": ".seo-agent/evidence/server_log_analysis.json"
+        },
+        "opportunity_scores": {
+          "const": ".seo-agent/opportunity_scores.json"
+        },
+        "monitoring_snapshot": {
+          "const": ".seo-agent/monitoring_snapshot.json"
+        },
         "evidence_dir": {
           "const": ".seo-agent/evidence"
+        }
+      },
+      "additionalProperties": true
+    },
+    "data_sources": {
+      "type": "object",
+      "properties": {
+        "competitor_keyword_exports": {
+          "type": "array"
+        },
+        "serp_exports": {
+          "type": "array"
+        },
+        "gsc_exports": {
+          "type": "array"
+        },
+        "competitor_urls": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "analysis_modules": {
+      "type": "object",
+      "properties": {
+        "competitor_keyword_gap": {
+          "type": "boolean"
+        },
+        "serp_competitor_discovery": {
+          "type": "boolean"
+        },
+        "competitor_content_entity_gap": {
+          "type": "boolean"
+        },
+        "load_speed_audit": {
+          "type": "boolean"
+        },
+        "gsc_opportunity_mining": {
+          "type": "boolean"
+        },
+        "ai_visibility_audit": {
+          "type": "boolean"
+        },
+        "internal_link_graph_scoring": {
+          "type": "boolean"
+        },
+        "machine_readable_reporting": {
+          "type": "boolean"
+        },
+        "falsifiable_recommendations": {
+          "type": "boolean"
+        },
+        "structured_data_validation": {
+          "type": "boolean"
+        },
+        "server_log_analysis": {
+          "type": "boolean"
+        },
+        "opportunity_scoring": {
+          "type": "boolean"
+        },
+        "monitoring_mode": {
+          "type": "boolean"
+        },
+        "industry_playbooks": {
+          "type": "boolean"
         }
       },
       "additionalProperties": true

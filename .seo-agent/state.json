@@ -13,8 +13,42 @@
   "artifacts": {
     "manifesto": "project_manifesto.md",
     "checklist": "seo_dynamic_checklist.md",
+    "opportunities_json": "seo_opportunities.json",
+    "competitor_keyword_analysis": "seo_competitor_keyword_analysis.md",
+    "performance_audit": "seo_performance_audit.md",
     "report": "seo_changelog_report.md",
+    "internal_link_graph": ".seo-agent/internal_link_graph.json",
+    "search_console_import": ".seo-agent/search_console_import.json",
+    "rendered_seo": ".seo-agent/evidence/rendered_seo.json",
+    "static_crawl": ".seo-agent/evidence/static_crawl.json",
+    "pagespeed_crux": ".seo-agent/evidence/pagespeed_crux.json",
+    "structured_data_validation": ".seo-agent/evidence/structured_data_validation.json",
+    "server_log_analysis": ".seo-agent/evidence/server_log_analysis.json",
+    "opportunity_scores": ".seo-agent/opportunity_scores.json",
+    "monitoring_snapshot": ".seo-agent/monitoring_snapshot.json",
     "evidence_dir": ".seo-agent/evidence"
+  },
+  "data_sources": {
+    "competitor_keyword_exports": [],
+    "serp_exports": [],
+    "gsc_exports": [],
+    "competitor_urls": []
+  },
+  "analysis_modules": {
+    "competitor_keyword_gap": false,
+    "serp_competitor_discovery": false,
+    "competitor_content_entity_gap": false,
+    "load_speed_audit": false,
+    "gsc_opportunity_mining": false,
+    "ai_visibility_audit": false,
+    "internal_link_graph_scoring": false,
+    "machine_readable_reporting": true,
+    "falsifiable_recommendations": true,
+    "structured_data_validation": true,
+    "server_log_analysis": false,
+    "opportunity_scoring": true,
+    "monitoring_mode": false,
+    "industry_playbooks": true
   },
   "file_hashes_before_edit": {},
   "changes": []
